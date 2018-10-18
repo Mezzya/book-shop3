@@ -11,9 +11,10 @@ export class BookListComponent implements OnInit {
   constructor() { 
 
     this.books = [
-      {id: 1, name: 'Angular2', price: 10, img:'/img/angular2.jpg' },
-      {id: 2, name: 'TypeScript', price: 15, img:'/img/ts.jpg'},
-      {id: 3, name: 'Java', price: 150, img:'/img/java.jpg'}
+      {id: 1, name: 'Angular2', price: 100, img:'http://demopavothemes.com/pav_books/image/cache/catalog/demo/product/product03-250x217.jpg' },
+      {id: 2, name: 'TypeScript', price: 153, img:'http://demopavothemes.com/pav_books/image/cache/catalog/demo/product/product10-250x217.jpg'},
+      {id: 3, name: 'Java', price: 150, img:'http://demopavothemes.com/pav_books/image/cache/catalog/demo/product/product06-250x217.jpg'},
+      {id: 4, name: 'DevOps', price: 250, img:'http://demopavothemes.com/pav_books/image/cache/catalog/demo/product/product08-250x217.jpg'}
       
     ];
 

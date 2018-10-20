@@ -1,11 +1,15 @@
-<p>
-  cart works!
-</p>
-<div *ngFor="let cartItem of cartItems">
-  <p>id: {{cartItem.id}}</p>
-  <p>name: {{cartItem.name}}</p>
-  <p>price: {{cartItem.price}}</p>
-  <p>img: {{cartItem.img}}</p>
-  <p>quantity: {{cartItem.quantity}}</p>
-  
-</div>
+<li>
+  <table class="table table-striped">
+              <tbody><tr>
+      <td class="text-center">              
+        <a href="http://demopavothemes.com/pav_books/index.php?route=product/product&amp;product_id=48">
+        <img width="46" height="80" src="{{cartItem.img}}"></a>
+        </td>
+      <td class="text-left"><a href="http://demopavothemes.com/pav_books/index.php?route=product/product&amp;product_id=48">Lorem ipsum 18</a>
+                      </td>
+      <td class="text-right quantity">x ${{cartItem.quantity}}</td>
+      <td class="text-right">${{cartItem.price}}</td>
+      <td class="text-center"><button type="button" onclick="cart.remove('321');" title="Remove" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button></td>
+    </tr>
+                      </tbody></table>
+</li>

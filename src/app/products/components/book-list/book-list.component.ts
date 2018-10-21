@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BookModel } from '../../models/book.model';
 
 @Component({
@@ -8,8 +8,15 @@ import { BookModel } from '../../models/book.model';
 })
 export class BookListComponent implements OnInit {
   books:Array<BookModel>
+
+  @Output()
+  buy: EventEmitter<BookModel> = new EventEmitter<BookModel>();
   constructor() { 
 
+  
+  }
+
+  ngOnInit() {
     this.books = [
       {id: 1, name: 'Angular2', price: 100, img:'assets/images/books/angular2-250x217.jpg' },
       {id: 2, name: 'Apahe Camel', price: 153, img:'assets/images/books/camel-250x217.jpg'},
@@ -25,8 +32,9 @@ export class BookListComponent implements OnInit {
     ];
 
   }
-
-  ngOnInit() {
+  onBuy(book:BookModel){
+    console.log(`Book buy `+book.id);
+    this.buy.emit(book);
   }
 
 }

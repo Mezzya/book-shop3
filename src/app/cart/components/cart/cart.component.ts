@@ -18,4 +18,21 @@ export class CartComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Return buy book
+  onPlus(event: any){
+    console.log(`Book + ${this.cartItem.name}`);
+    this.plus.emit(this.cartItem);
+  }
+
+  onMinus(event: any){
+    console.log(`Book - ${this.cartItem.name}`);
+    this.minus.emit(this.cartItem);
+  }
+
+  onDelete(event: any){
+    console.log(`Book buy ${this.cartItem.name}`);
+    this.delete.emit(this.cartItem);
+  }
+
+
 }

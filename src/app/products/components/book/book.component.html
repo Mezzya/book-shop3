@@ -5,10 +5,10 @@
     </div>
     <div class="product-meta clearfix text-right">
       <div class="img-overlay"></div>
-      <h3 class="name"><a>{{book.name}}</a></h3>	
+      <h3 class="name"><a>{{book.name | titlecase}}</a></h3>	
       <div class="description" itemprop="description">Lorem ipsum dolor sit amet, consectetur adipiscing...</div>
       <div class="price" itemtype="http://schema.org/Offer" itemscope itemprop="offers">
-      <span class="special-price">${{book.price}}.00</span>
+      <span class="special-price">{{book.price | currency}}</span>
       </div>
 
       <div class="action">

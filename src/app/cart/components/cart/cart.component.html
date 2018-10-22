@@ -3,12 +3,12 @@
               <tbody><tr>
       <td class="text-center">              
         <img width="46" height="80" src="{{cartItem.img}}">
-              <td class="text-left">{{cartItem.name}}
+              <td class="text-left">{{cartItem.name | titlecase}}
                       </td>
       <td class="text-right quantity">x {{cartItem.quantity}}</td>
       <td class="text-center"><button type="button" (click)="onPlus($event)" title="+" class="btn  btn-xs">+</button></td>
       <td class="text-center"><button type="button" (click)="onMinus($event)" title="-" class="btn btn-xs">-</button></td>
-      <td class="text-right">${{cartItem.price}}</td>
+      <td class="text-right">{{cartItem.price | currency}}</td>
       <td class="text-center"><button type="button" (click)="onDelete($event)" title="Remove" class="btn btn-danger btn-xs">X</button></td>
     </tr>
     

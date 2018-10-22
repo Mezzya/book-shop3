@@ -9,8 +9,7 @@ import { BookModel } from '../../models/book.model';
 export class BookListComponent implements OnInit {
   books:Array<BookModel>
 
-  @Output()
-  buy: EventEmitter<BookModel> = new EventEmitter<BookModel>();
+ 
   constructor() { 
 
   
@@ -34,7 +33,7 @@ export class BookListComponent implements OnInit {
   }
   onBuy(book:BookModel){
     console.log(`Book buy `+book.id);
-    this.buy.emit(book);
+  
   }
 
 }

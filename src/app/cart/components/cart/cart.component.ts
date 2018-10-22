@@ -21,17 +21,17 @@ export class CartComponent implements OnInit {
   // Return buy book
   onPlus(event: any){
     console.log(`Book + ${this.cartItem.name}`);
-    this.plus.emit(this.cartItem);
+    // this.plus.emit(this.cartItem);
   }
 
   onMinus(event: any){
     console.log(`Book - ${this.cartItem.name}`);
-    this.minus.emit(this.cartItem);
+    // this.minus.emit(this.cartItem);
   }
 
   onDelete(event: any){
     console.log(`Book buy ${this.cartItem.name}`);
-    this.delete.emit(this.cartItem);
+    // this.delete.emit(this.cartItem);
   }
 
 

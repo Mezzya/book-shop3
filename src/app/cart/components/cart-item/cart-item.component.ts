@@ -9,22 +9,37 @@ import { CartItemModel } from '../../models/cart-item.model';
 export class CartItemComponent implements OnInit {
 
   cartItems: Array<CartItemModel>;
+  totalSum: number=0;
+  totalCount: number=0;
+
   
   constructor() { 
   }
 
   ngOnInit() {
     this.cartItems = [
-      {id: 2, name: 'Apahe Camel', price: 153, img:'assets/images/books/camel-250x217.jpg', quantity:3},
-      {id: 3, name: 'Pro CSS and HTML', price: 153, img:'assets/images/books/html_css-250x217.jpg', quantity:4}, 
-      {id: 4, name: 'Java for dummies', price: 150, img:'assets/images/books/java_for_dummies-250x217.jpg', quantity:2}
+      {id: 2, name: 'Apahe Camel', price: 10, img:'assets/images/books/camel-250x217.jpg', quantity:3},
+      {id: 3, name: 'Pro CSS and HTML', price: 5, img:'assets/images/books/html_css-250x217.jpg', quantity:4}, 
+      {id: 4, name: 'Java for dummies', price: 12, img:'assets/images/books/java_for_dummies-250x217.jpg', quantity:2}
     ]
+
+    this.countTotalSum();
   }
 
+  private countTotalSum(){
+    this.totalSum=0;
+    this.totalCount=0;
+   
+    this.cartItems.forEach(e =>{
+      this.totalSum+=e.price*e.quantity;
+      this.totalCount+=e.quantity;
+    })
 
+  }
   onMinus(cartItem: CartItemModel){
 
     console.log("CartItem - cart"+cartItem.name);
+    this.countTotalSum();
 
    this.cartItems.forEach(element => {
 
@@ -43,7 +58,7 @@ export class CartItemComponent implements OnInit {
   onPlus(cartItem: CartItemModel){
 
     console.log("CartItem + cart"+cartItem.name);
-
+    this.countTotalSum();
    this.cartItems.forEach(element => {
 
     if (element.id ==cartItem.id) {
@@ -53,7 +68,7 @@ export class CartItemComponent implements OnInit {
    });
   }
   onDelete(cartItem: CartItemModel){
-
+    this.countTotalSum();
     console.log("CartItem remove cart"+cartItem.name);
     // Delete item from array
   

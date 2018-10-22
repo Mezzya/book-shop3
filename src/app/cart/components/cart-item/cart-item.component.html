@@ -1,3 +1,5 @@
+
+
 <app-cart (cartMinus)="onMinus($event)" (cartPlus)="onPlus($event)" (cartDelete)="onDelete($event)"
   *ngFor="let cartItem of cartItems" [cartItem]="cartItem">
 
@@ -5,21 +7,10 @@
 
 <div class="table-responsive">
     <table class="table table-bordered">
-                  <tbody><tr>
-        <td class="text-right"><strong>Sub-Total</strong></td>
-        <td class="text-right">$200.00</td>
-      </tr>
-                  <tr>
-        <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
-        <td class="text-right">$4.00</td>
-      </tr>
-                  <tr>
-        <td class="text-right"><strong>VAT (20%)</strong></td>
-        <td class="text-right">$40.00</td>
-      </tr>
+                  <tbody>
                   <tr>
         <td class="text-right"><strong>Total</strong></td>
-        <td class="text-right">$244.00</td>
+        <td class="text-right">${{totalSum}}</td>
       </tr>
                 </tbody></table>
     <p class="text-right">

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BookModel } from '../../models/book.model';
 import { BooksService } from '../../services/books.service';
+import { CartService } from 'src/app/cart/services/cart.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class BookListComponent implements OnInit {
   books:Array<BookModel>
 
  
-  constructor(private bookService: BooksService) { 
+  constructor(private bookService: BooksService, private cartService: CartService) { 
 
   
   }
@@ -40,7 +41,7 @@ export class BookListComponent implements OnInit {
   }
   onBuy(book:BookModel){
     console.log(`Book buy `+book.id);
-  
+    this.cartService.addToCart(book);
   }
 
 }

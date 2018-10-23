@@ -10,8 +10,8 @@ import { CartService } from '../../services/cart.service';
 export class CartItemComponent implements OnInit {
 
   cartItems: Array<CartItemModel>;
-  totalSum: number=0;
-  totalCount: number=0;
+  totalSum = new Number(0);
+  // totalCount: number=0;
 
   
   constructor(private cartService: CartService) { 
@@ -23,58 +23,37 @@ export class CartItemComponent implements OnInit {
     //   {id: 3, name: 'Pro CSS and HTML', price: 5, img:'assets/images/books/html_css-250x217.jpg', quantity:4}, 
     //   {id: 4, name: 'Java for dummies', price: 12, img:'assets/images/books/java_for_dummies-250x217.jpg', quantity:2}
     // ]
-
-    this.cartItems= this.cartService.cartItems;
    
-    // this.countTotalSum();
+    this.cartItems= this.cartService.getCartItems();
+    this.totalSum = this.cartService.total;
+   
+    
   }
 
-  private countTotalSum(){
-    this.totalSum=0;
-    this.totalCount=0;
-   
-    this.cartItems.forEach(e =>{
-      this.totalSum+=e.price*e.quantity;
-      this.totalCount+=e.quantity;
-    })
-
-  }
   onMinus(cartItem: CartItemModel){
 
     console.log("CartItem - cart"+cartItem.name);
-    this.countTotalSum();
 
-   this.cartItems.forEach(element => {
-
-    if (element.id ==cartItem.id) {
-        if (element.quantity == 1){
-          // Delete item from array
-        
-        } 
-        else
-        if (element.quantity>=2) element.quantity--;
-    }
-     
-   });
+    this.cartService.decQuantity(cartItem);
+    this.totalSum = this.cartService.total;
+  
   }
 
   onPlus(cartItem: CartItemModel){
 
     console.log("CartItem + cart"+cartItem.name);
-    this.countTotalSum();
-   this.cartItems.forEach(element => {
-
-    if (element.id ==cartItem.id) {
-         element.quantity++;
-    }
-     
-   });
+   
+  this.cartService.incQuantity(cartItem);
+  this.totalSum = this.cartService.total;
   }
+
   onDelete(cartItem: CartItemModel){
-    this.countTotalSum();
+    // this.countTotalSum();
     console.log("CartItem remove cart"+cartItem.name);
     // Delete item from array
-  
+    this.cartService.delFromCart(cartItem);
+    this.totalSum = this.cartService.total;
+   
   }
 
   onCheckout(){
